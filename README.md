@@ -150,9 +150,6 @@ dirección de la dependencia se invierte hacia la abstracción.
 
 ## Reflexiones individuales
 
-> La versión completa de cada reflexión (en PDF para Brightspace) está en la carpeta
-> [`reflexiones-individuales/`](reflexiones-individuales/).
-
 ### Josue Riera — *principio más desafiante: DIP*
 Lo que más me costó fue la **Inversión de Dependencias**, porque me obligó a desaprender la
 costumbre de instanciar todo con `new` dentro de la misma clase. Un `Interruptor` "ingenuo"
