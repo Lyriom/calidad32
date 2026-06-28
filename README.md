@@ -150,30 +150,33 @@ dirección de la dependencia se invierte hacia la abstracción.
 
 ## Reflexiones individuales
 
-### Josue Riera
-El principio que más me costó aplicar fue **DIP**. Al inicio no veía el problema de que el
-`Interruptor` creara su propio dispositivo adentro; me parecía lo natural. Recién cuando quise
-cambiar la bombilla por un ventilador entendí que tenía que modificar una clase que ya
-funcionaba. Pasar la dependencia por constructor lo resolvió y dejó el código mucho más fácil
-de probar. Creo que SOLID mejora el diseño porque permite cambiar una parte del sistema sin
-miedo a romper el resto. En mis proyectos actuales aplicaría DIP siempre que dependa de
-servicios externos (APIs de pago, notificaciones): definir una interfaz e inyectar la
+> La versión completa de cada reflexión (en PDF para Brightspace) está en la carpeta
+> [`reflexiones-individuales/`](reflexiones-individuales/).
+
+### Josue Riera — *principio más desafiante: DIP*
+Lo que más me costó fue la **Inversión de Dependencias**, porque me obligó a desaprender la
+costumbre de instanciar todo con `new` dentro de la misma clase. Un `Interruptor` "ingenuo"
+habría tenido un `new Bombilla()` adentro y parecía inofensivo, hasta que al sumar `Ventilador`
+y `Cafetera` cada dispositivo nuevo me empujaba a editar el interruptor. Recibir un
+`Dispositivo` por constructor invirtió esa dependencia y lo dejó desacoplado y testeable. SOLID
+mejora el diseño porque vuelve el cambio seguro en vez de arriesgado. En proyectos reales
+aplicaría DIP al integrar servicios externos: programar contra una interfaz e inyectar la
 implementación desde afuera.
 
-### Joao Conde
-Para mí el más desafiante fue **LSP**, porque entender que la herencia es un *contrato de
-comportamiento* y no solo reutilización de código me tomó tiempo. Con las figuras geométricas
-quedó claro: si un subtipo no devuelve un área válida, todo el cálculo total se cae. Lo más
-difícil fue decidir qué iba en la clase base y qué no (por eso modelamos `Cuadrado` inmutable).
-SOLID mejora el diseño porque reduce las sorpresas: el código hace lo que uno espera. Como QA,
-el principio que más aplicaría es LSP, porque garantiza que las clases sean predecibles y por
-tanto mucho más fáciles de testear.
+### Joao Conde — *principio más desafiante: LSP*
+El más difícil para mí fue **Liskov**, porque aceptar que heredar es comprometerse con un
+contrato de comportamiento (y no solo reusar código) me tomó tiempo. Con las figuras quedó
+clarísimo: el `Main` suma áreas recorriendo una lista de `Figura` sin saber el subtipo, así que
+un solo subtipo incoherente rompería todo el cálculo. Desde la calidad, SOLID elimina sorpresas
+y hace las pruebas confiables y los fallos fáciles de aislar. Aplicaría LSP validando que cada
+subtipo cumpla el contrato de su base, y lo complemento con ISP para no depender de métodos que
+no se usan.
 
-### Victor Suquilanda
-El que más trabajo me dio fue **SRP**, no por difícil de entender sino por difícil de aplicar
-bien: cuesta decidir dónde termina una responsabilidad y empieza otra. Al separar la nómina en
-calculadora, generador, repositorio y coordinador dudé si no estaba creando demasiadas clases,
-pero al final cada una quedó clara y fácil de mantener. SOLID hace que trabajar en equipo sea
-más ordenado: cada quien puede tocar una clase distinta sin pisarse. En el front aplicaría SRP
-constantemente, separando componentes de presentación de la lógica de datos; apenas un
-componente empieza a "hacer de todo", sé que después va a doler.
+### Victor Suquilanda — *principio más desafiante: SRP*
+A mí el que más trabajo me dio fue **Responsabilidad Única**: suena obvio, pero aplicarlo bien
+obliga a decidir con cuidado dónde cortar. Al refactorizar la nómina pasamos de una clase que
+lo hacía todo a `CalculadoraSalario`, `GeneradorReporte`, `RepositorioNomina` y `ServicioNomina`
+como coordinador; dudé si no era demasiado, pero cada clase quedó con una sola razón para
+cambiar. SOLID ordena el trabajo en equipo: cada quien toca una clase distinta sin pisarse. En
+frontend aplicaría SRP separando la presentación de la lógica de datos y dividiendo cualquier
+componente que empiece a "hacer de todo".

@@ -135,26 +135,29 @@
      repositorio. A continuación las reflexiones individuales del equipo:</p>
 
   <div class="refl">
-    <p><b>Josue Riera.</b> El principio que más me costó fue <b>DIP</b>. Al inicio no veía el
-       problema de que el <code>Interruptor</code> creara su propio dispositivo adentro; recién al
-       querer cambiar la bombilla por un ventilador entendí que tocaba modificar una clase que ya
-       funcionaba. Inyectar la dependencia por constructor lo resolvió y dejó el código más fácil
-       de probar. En proyectos reales aplicaría DIP siempre que dependa de servicios externos:
-       definir una interfaz e inyectar la implementación desde afuera.</p>
+    <p><b>Josue Riera (DIP).</b> Lo que más me costó fue desaprender la costumbre de instanciar
+       todo con <code>new</code> dentro de la propia clase. Un <code>Interruptor</code> "ingenuo"
+       habría tenido un <code>new Bombilla()</code> adentro y parecía inofensivo, hasta que al
+       sumar el ventilador y la cafetera cada dispositivo nuevo me empujaba a editar el interruptor.
+       Recibir un <code>Dispositivo</code> por constructor invirtió la dependencia y lo dejó
+       desacoplado y testeable. En proyectos reales aplicaría DIP al integrar servicios externos:
+       programar contra una interfaz e inyectar la implementación desde afuera.</p>
   </div>
 
   <div class="refl">
-    <p><b>Joao Conde.</b> El más desafiante fue <b>LSP</b>, porque entender que la herencia es un
-       contrato de comportamiento (y no solo reutilizar código) me tomó tiempo. Con las figuras
-       quedó claro: si un subtipo no devuelve un área válida, el cálculo total se cae. SOLID reduce
-       las sorpresas y hace el código más predecible; como QA, es justo lo que facilita el testing.</p>
+    <p><b>Joao Conde (LSP).</b> El más difícil fue aceptar que heredar es comprometerse con un
+       contrato de comportamiento, no solo reusar código. Con las figuras quedó clarísimo: el
+       <code>Main</code> suma áreas recorriendo una lista de <code>Figura</code> sin saber el
+       subtipo, así que un solo subtipo incoherente rompería todo el cálculo. Desde la calidad,
+       SOLID elimina sorpresas y hace las pruebas confiables y los fallos fáciles de aislar.</p>
   </div>
 
   <div class="refl">
-    <p><b>Victor Suquilanda.</b> El que más trabajo me dio fue <b>SRP</b>: no es difícil de
-       entender, pero sí de aplicar bien, porque cuesta decidir dónde termina una responsabilidad
-       y empieza otra. Separar la nómina en varias clases pequeñas la dejó mucho más mantenible.
-       SOLID también ordena el trabajo en equipo: cada quien toca una clase distinta sin pisarse.</p>
+    <p><b>Victor Suquilanda (SRP).</b> Suena obvio que "cada clase haga una sola cosa", pero
+       aplicarlo bien obliga a decidir con cuidado dónde cortar. Al refactorizar la nómina pasamos
+       de una clase que lo hacía todo a cuatro piezas con una única razón para cambiar cada una.
+       SOLID ordena el trabajo en equipo: cada quien toca una clase distinta sin pisarse. En
+       frontend aplicaría SRP separando la presentación de la lógica de datos.</p>
   </div>
 
   <footer class="doc">
