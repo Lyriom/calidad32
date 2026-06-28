@@ -145,35 +145,3 @@ Creamos la abstracción `Dispositivo` (`encender`, `apagar`, `nombre`). El módu
 
 El mismo `Interruptor` controla cualquier dispositivo presente o futuro sin modificarse: la
 dirección de la dependencia se invierte hacia la abstracción.
-
----
-
-## Reflexiones individuales
-
-### Josue Riera — *principio más desafiante: DIP*
-Lo que más me costó fue la **Inversión de Dependencias**, porque me obligó a desaprender la
-costumbre de instanciar todo con `new` dentro de la misma clase. Un `Interruptor` "ingenuo"
-habría tenido un `new Bombilla()` adentro y parecía inofensivo, hasta que al sumar `Ventilador`
-y `Cafetera` cada dispositivo nuevo me empujaba a editar el interruptor. Recibir un
-`Dispositivo` por constructor invirtió esa dependencia y lo dejó desacoplado y testeable. SOLID
-mejora el diseño porque vuelve el cambio seguro en vez de arriesgado. En proyectos reales
-aplicaría DIP al integrar servicios externos: programar contra una interfaz e inyectar la
-implementación desde afuera.
-
-### Joao Conde — *principio más desafiante: LSP*
-El más difícil para mí fue **Liskov**, porque aceptar que heredar es comprometerse con un
-contrato de comportamiento (y no solo reusar código) me tomó tiempo. Con las figuras quedó
-clarísimo: el `Main` suma áreas recorriendo una lista de `Figura` sin saber el subtipo, así que
-un solo subtipo incoherente rompería todo el cálculo. Desde la calidad, SOLID elimina sorpresas
-y hace las pruebas confiables y los fallos fáciles de aislar. Aplicaría LSP validando que cada
-subtipo cumpla el contrato de su base, y lo complemento con ISP para no depender de métodos que
-no se usan.
-
-### Victor Suquilanda — *principio más desafiante: SRP*
-A mí el que más trabajo me dio fue **Responsabilidad Única**: suena obvio, pero aplicarlo bien
-obliga a decidir con cuidado dónde cortar. Al refactorizar la nómina pasamos de una clase que
-lo hacía todo a `CalculadoraSalario`, `GeneradorReporte`, `RepositorioNomina` y `ServicioNomina`
-como coordinador; dudé si no era demasiado, pero cada clase quedó con una sola razón para
-cambiar. SOLID ordena el trabajo en equipo: cada quien toca una clase distinta sin pisarse. En
-frontend aplicaría SRP separando la presentación de la lógica de datos y dividiendo cualquier
-componente que empiece a "hacer de todo".
