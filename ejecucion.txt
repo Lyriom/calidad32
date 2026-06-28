@@ -1,0 +1,52 @@
+$ java -cp target/classes srp.Main
+=== Rol de pagos: empleado 1 ===
+Guardando rol de pagos en la base de datos...
+  > Empleado: Josue Riera          | Cargo: Backend Developer    | Bruto: $ 1500.00 | Neto a pagar: $ 1366.25
+
+=== Rol de pagos: empleado 2 ===
+Guardando rol de pagos en la base de datos...
+  > Empleado: Joao Conde           | Cargo: QA Engineer          | Bruto: $ 1200.00 | Neto a pagar: $ 1053.00
+
+=== Rol de pagos: empleado 3 ===
+Guardando rol de pagos en la base de datos...
+  > Empleado: Victor Suquilanda    | Cargo: Frontend Developer   | Bruto: $ 1350.00 | Neto a pagar: $ 1209.63
+
+$ java -cp target/classes ocp.Main
+Monto base de la compra: $200.0
+
+Cliente Regular (0%)       -> Total a pagar: $200.00
+Cliente Premium (10%)      -> Total a pagar: $180.00
+Cliente VIP (20%)          -> Total a pagar: $160.00
+Promo Temporada (35%)      -> Total a pagar: $130.00
+
+$ java -cp target/classes lsp.Main
+--- Calculando area y perimetro de cada figura ---
+Circulo                | area =    78.54 | perimetro =   31.42
+Rectangulo             | area =    24.00 | perimetro =   20.00
+Cuadrado               | area =     9.00 | perimetro =   12.00
+Triangulo equilatero   | area =     6.93 | perimetro =   12.00
+
+Area total de todas las figuras: 118.47
+
+$ java -cp target/classes isp.Main
+--- Impresora Multifuncion ---
+Multifuncion: imprimiendo 'Informe_SOLID.pdf'
+Multifuncion: escaneando 'Contrato.png'
+Multifuncion: enviando fax de 'Factura.pdf' a +593 99 123 4567
+
+--- Impresora Basica ---
+Basica: imprimiendo 'Ticket.txt'
+
+$ java -cp target/classes dip.Main
+--- Interruptor conectado a una Bombilla ---
+Bombilla encendida.
+Bombilla apagada.
+
+--- Interruptor conectado a un Ventilador ---
+Ventilador girando a velocidad media.
+Ventilador detenido.
+
+--- Interruptor conectado a una Cafetera ---
+Cafetera preparando cafe.
+Cafetera en reposo.
+
